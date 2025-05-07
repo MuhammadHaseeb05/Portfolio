@@ -9,14 +9,25 @@ function Header() {
   return (
     <AppBar position="static">
       <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Typography variant="h6" component="div">
+        <Typography variant="h5" component="div" sx={{fontWeight:'bold',fontFamily:'monospace'}}>
           My Portfolio
         </Typography>
         <Box>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Projects</Button>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Contact</Button>
+          {['Home', 'Projects', 'About', 'Contact'].map((label) => (
+            <Button
+              key={label}
+              color="inherit"
+              sx={{
+                mx: 1,
+                '&:hover': {
+                  backgroundColor: '#ffffff22',
+                  fontWeight: 'bold'
+                }
+              }}
+            >
+              {label}
+            </Button>
+          ))}
         </Box>
       </Toolbar>
     </AppBar>
